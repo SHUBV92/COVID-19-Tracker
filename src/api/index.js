@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
 
-   export const fetchData = () => (
+   export const fetchData = async () => (
 
-        fetch('https://covid19.mathdro.id/api')
+        await fetch('https://covid19.mathdro.id/api')
         .then((response) => (
              response.json()))
         .then((data) => {
