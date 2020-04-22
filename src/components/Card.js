@@ -1,4 +1,5 @@
 import React from "react";
+import CountUp from "react-countup";
 
 import styles from "./card.module.css";
 
@@ -26,6 +27,18 @@ const Card = props => {
             <p>
               <h3>{i.header}</h3>
               <h4>{i.title}</h4>
+              <h4>{console.log(i.title)}</h4>
+
+              <CountUp start={0} end={i.title}>
+                {({ countUpRef, start }) => (
+                  <div>
+                    <span ref={countUpRef} />
+                    <button onClick={start}>
+                      Reveal
+                    </button>
+                  </div>
+                )}
+              </CountUp>
             </p>
           </div>
         </div>
