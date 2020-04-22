@@ -2,14 +2,16 @@ import React, { Component } from "react";
 
 import Card from "./components/Card";
 import { fetchData } from "./api";
-import './App.css'
+import './App.module.css'
 
 class App extends Component {
   state = {
     data: null,
+    recievedData : {
     confirmed: null,
     recovered: null,
     deaths: null
+    }
   };
 
   componentDidMount = async () => {
@@ -35,9 +37,12 @@ class App extends Component {
       <div>
         <div className="card">
           <h1>COVID-19 Tracker</h1>
-          <p><h3>Confirmed Cases</h3>{this.state.confirmed}</p>
-          <p><h3>Deaths</h3>{this.state.deaths}</p>
-          <p><h3>Recovered Cases</h3>{this.state.recovered}</p>
+          <Card 
+          confirmed = {this.state.confirmed}
+          deaths= {this.state.deaths}
+          recovered={this.state.recovered}
+          
+            />
         </div>
       </div>
     );

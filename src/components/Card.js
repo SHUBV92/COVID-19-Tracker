@@ -1,16 +1,37 @@
-import React, { Component } from 'react';
+import React from "react";
 
+import styles from "./card.module.css";
 
-class Card extends Component  { 
-    state = {
-
+const Card = props => {
+  const data = [
+    {
+      header: "Confirmed Cases",
+      title: props.confirmed
+    },
+    {
+      header: "Deaths",
+      title: props.deaths
+    },
+    {
+      header: "Recovered Cases",
+      title: props.recovered
     }
+  ];
 
-    render() { 
-        return(
-    <div></div>
-        )
-    }
-}
+  return (
+    <div>
+      {data.map(i => (
+        <div className={styles.card}>
+          <div className={styles.container}>
+            <p>
+              <h3>{i.header}</h3>
+              <h4>{i.title}</h4>
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
 
-export default Card; 
+export default Card;
